@@ -53,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
            // int count = 0;
             public void onClick(View view) {
                 if(count%2 == 1 ){
-                    disableButton.setText("Disabled");
-                    Toast.makeText(MainActivity.this, "Disable", Toast.LENGTH_SHORT).show();
+                    disableButton.setText("Disable");
+                    Toast.makeText(MainActivity.this, "Enabled", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    disableButton.setText("Enabled");
-                    Toast.makeText(MainActivity.this, "Enable", Toast.LENGTH_SHORT).show();
+                    disableButton.setText("Enable");
+                    Toast.makeText(MainActivity.this, "Disabled", Toast.LENGTH_SHORT).show();
                 }
 
                 count++;
