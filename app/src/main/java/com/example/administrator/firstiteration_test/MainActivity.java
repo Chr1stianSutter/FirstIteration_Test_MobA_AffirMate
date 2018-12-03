@@ -9,17 +9,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView myTextView;
     Typeface montserratFont;
-
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         myTextView = findViewById(R.id.TextView);
         montserratFont = Typeface.createFromAsset(this.getAssets(), "fonts/Montserrat-ExtraBold.ttf");
@@ -31,6 +35,36 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        Button editButton = (Button) findViewById(R.id.editButtonPressed);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Edit", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        final Button disableButton = (Button) findViewById(R.id.disableButtonPressed);
+        disableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+           // int count = 0;
+            public void onClick(View view) {
+                if(count%2 == 1 ){
+                    disableButton.setText("Disabled");
+                    Toast.makeText(MainActivity.this, "Disable", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    disableButton.setText("Enabled");
+                    Toast.makeText(MainActivity.this, "Enable", Toast.LENGTH_SHORT).show();
+                }
+
+                count++;
+                        if(count == 10){count = 0;}
+
+
             }
         });
     }
